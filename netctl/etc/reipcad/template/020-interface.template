@@ -1,0 +1,64 @@
+
+#####################
+# INTERFACE OPTIONS #
+#####################
+
+#
+# interface <iface> [ promisc ] [ input-only ]
+#			[ netflow-disable ] [ filter "<pcap_filter>" ] ;
+# OR
+# interface ulog group <group> [, group <group> ...]
+#			[ netflow-disable ];
+# OR
+# interface ipq [ netflow-disable ];	# man libipq(3)
+# OR
+# interface {divert|tee} port <divert-port>			# man divert(4)
+#			[ input-only ] [ netflow-disable ];
+# OR
+# interface file <tcpdump-output.pcap> [ netflow-disable ];
+#
+# Options meaning:
+#
+# promisc:
+# 	Put interface into promiscuous mode.
+# 	This enables listening for the packets which are not destined for
+# 	this host and thus ipcad will count and display all the traffic within
+# 	the local network. Note that the interface might be in promiscuous mode
+# 	for some other reason.
+#
+# input-only:
+# 	Use kernel feature of counting only incoming packets.
+#
+# netflow-sampled: 	(DO NOT ENABLE THIS OPTION, unless you have to!)
+# 	If the NetFlow export mechanism is used, this option instructs
+#	the interface to supply only one out of N packets to the NetFlow
+#	accounting code, thus lowering the CPU requirements. The value of N
+#	is configured explicitly in a NetFlow configuration section.
+#	NOTE: This option is NOT used to enable NetFlow on the interface,
+#	it just modifies the NetFlow behavior on this interface.
+#	DO NOT ENABLE THIS OPTION, UNLESS YOU HAVE TO!
+#
+# netflow-disable:
+#	By default, all interfaces are included into NetFlow accounting.
+#	This option is used to disable NetFlow on a particular interface.
+#
+# filter:
+# 	Install a custom filter on packets instead of basic
+#	IP protocol filter. Requires libpcap (even if BPF is being used).
+#	May be employed to eliminate CPU overhead on passing unnecessary
+#	data between the kernel and user space (by installing the filter
+#	directly into the kernel).
+#
+# NOTES:
+#  * "input-only" directive must be supported by kernel.
+#    Probably, you were noticed about it during the compilation process
+#    if it was not supported.
+#    FreeBSD 3.x and elder kernels do not support this feature.
+#  * ULOG packet source (interface ulog) is supported under
+#    Linux >= 2.4.18-pre8.
+#    You should configure iptables to dump the packet stream
+#    into the appropriate group, i.e.:
+#        iptables -A OUTPUT -j ULOG --ulog-nlgroup <group>
+#    Given ULOG groups will be OR'ed together.
+#  * A wildcard (*) may be specified as part of an interface name.
+#

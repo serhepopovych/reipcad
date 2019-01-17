@@ -1,0 +1,11 @@
+
+#
+# aggregate <port_range_start>[-<port_range_end>] into <port> ;
+#
+# Aggregate port numbers. Meaningful only if capture-ports is enabled.
+#
+#
+# aggregate 1024-65535	into 65535;	/* Aggregate wildly */
+# aggregate 3128-3128	into 3128;	/* Protect these ports */
+# aggregate 150-1023	into 1023;	/* General low range */
+#

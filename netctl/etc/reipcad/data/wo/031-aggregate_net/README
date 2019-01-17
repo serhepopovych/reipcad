@@ -1,0 +1,44 @@
+
+Create files with name "as${asn}.conf" here with
+following contents:
+
+    asn=64496
+
+    prefix1=192.0.2.0/24
+    strip1=24
+
+    prefix2=198.51.100.0/24
+    strip2=28
+
+    prefix3=203.0.113.0/24
+    strip3=25
+
+    cat >"as${asn}.conf" <<EOF
+
+    # AS${asn}
+    aggregate ${prefix1} strip ${strip1};
+    aggregate ${prefix2} strip ${strip2};
+    aggregate ${prefix3} strip ${strip3};
+    EOF
+
+Data for statistics aggregation could be feed from
+RSes /netctl/etc/*/xml/customers.xml
+<net>prefix</net> tags for given autonomous system.
+
+You can also use add_net.sh to automatically
+fetch network prefixes from whois "route" object
+for given origin ASN and possibly edit generated
+by it as${asn}.conf file to meet needs. Thus
+
+    add_net.sh <asn>
+
+would create as<asn>.conf file in current directory
+with contents like
+
+    # AS<asn>
+    aggregate <net>/<plen> strip <plen>;
+    aggregate <net>/<plen> strip <plen>;
+    ...
+
+where <net>/<plen> data is taken from whois database,
+aggregated by aggregate(1) and sorted by sort(1).

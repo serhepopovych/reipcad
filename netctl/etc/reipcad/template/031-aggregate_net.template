@@ -1,0 +1,7 @@
+
+#
+# aggregate <ip>/<masklen> strip <maskbits> ;
+#
+# Aggregate addresses from the specified network (<ip>/<masklen>),
+# by AND'ing with specified mask (<maskbits>).
+#

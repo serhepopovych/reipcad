@@ -1,0 +1,10 @@
+
+##########################
+# NetFlow EXPORT OPTIONS #
+##########################
+
+#
+# Enable Cisco NetFlow export method.
+# NetFlow uses UDP to feed flow information to the receiver.
+# If the destination is not specified, NetFlow is disabled.
+#

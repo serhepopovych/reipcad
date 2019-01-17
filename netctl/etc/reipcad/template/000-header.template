@@ -1,0 +1,9 @@
+#
+# Configuration file for ipcad - Cisco IP accounting simulator daemon.
+# Copyright (c) 2001, 2002, 2003, 2004, 2005
+# 	Lev Walkin <vlm@lionet.info>.
+#
+# Please see ipcad.conf(5) for additional explanations.
+# Please contact me if you have troubles configuring ipcad. My goal is to make
+# initial configuration easier for new users, so your input is valuable.
+#

@@ -1,0 +1,17 @@
+
+######################
+# RSH SERVER OPTIONS #
+######################
+
+#
+# RSH access rules:
+#
+# rsh [<user>@]<host_addr> {admin|backup|[default]|view-only|deny} ;
+#
+#
+# rsh root@127.0.0.1 admin;	/* Can shutdown ipcad */
+# rsh staff@127.0.0.1 backup;	/* Can dump/restore/import accounting table */
+# rsh yourself@127.0.0.1;		/* Can view and modify accounting tables */
+# /* Note the order! */
+# rsh luser@127.0.0.1 deny;	/* Deny this user from even viewing tables */
+# rsh 127.0.0.1 view-only;	/* Other users can view current tables */
