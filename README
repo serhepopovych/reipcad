@@ -1,0 +1,10 @@
+Helper to generate configuration files for multi-instance ipcad(8)
+==================================================================
+
+It is intended to create configuration file(s) for ipcad(8) from
+multiple fragments stored in netctl/etc/reipcad/data/<instance>/
+and netctl/etc/reipcad/template/ and restart ipcad(8) service
+with new configuration.
+
+See netctl/etc/reipcad/ for more information about configuration
+fragments and templates.
