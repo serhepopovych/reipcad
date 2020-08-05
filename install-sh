@@ -1,0 +1,9 @@
+#!/bin/sh -e
+
+# Requires: useradd(8), userdel(8), usermod(8)
+
+## Adjust filesystem ownership and permissions
+
+[ "$INSTALL_EUID" != 0 ] && owner='' || owner="root:$RECONFIGURE_GROUP"
+
+return 0
