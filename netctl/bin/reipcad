@@ -11,18 +11,18 @@ declare -a crt1_request_tools_list=(
 )
 
 # Source startup code
-. /netctl/lib/bash/crt1.sh
+. @target@/netctl/lib/bash/crt1.sh
 
 # Source functions libraries
-. /netctl/lib/bash/libbool.sh
-. /netctl/lib/bash/librtti.sh
-. /netctl/lib/bash/libstring.sh
-. /netctl/lib/bash/libfile.sh
-. /netctl/lib/bash/liblog.sh
-. /netctl/lib/bash/libprocess.sh
+. @target@/netctl/lib/bash/libbool.sh
+. @target@/netctl/lib/bash/librtti.sh
+. @target@/netctl/lib/bash/libstring.sh
+. @target@/netctl/lib/bash/libfile.sh
+. @target@/netctl/lib/bash/liblog.sh
+. @target@/netctl/lib/bash/libprocess.sh
 
 # Source reconfiguration library
-. /netctl/lib/bash/libreconf.sh
+. @target@/netctl/lib/bash/libreconf.sh
 
 ################################################################################
 
